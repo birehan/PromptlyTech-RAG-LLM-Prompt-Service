@@ -1,30 +1,30 @@
 from flask import Blueprint, jsonify, request
-import json
 import logging
-from exectuors import get_agent_executor
+
+from rag_utils import  get_generated_prompt_with_evaulation
 
 main_bp = Blueprint('main', __name__)
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-
-analyst_agent_openai = get_agent_executor()
-
-
-@main_bp.route('/', methods=['POST'])
+@main_bp.route('/api/v1/chat', methods=['POST'])
 def index():
-    data = request.json
     response = {
         "data" : None,
         "error" : None
     }
     statusCode = 404
     try:
-        response["data"] = "answer"
+        question = request.json.get('question')
+        answer = get_generated_prompt_with_evaulation(question)
+        answer_dict = answer.to_json()
+        
+        response["data"] = answer_dict
         statusCode = 200
+        
     except Exception as error:
         logging.error(error)
         response['error'] = {
         'message': f"{error}"
         }
-        statusCode = 404
+
     return jsonify(response), statusCode

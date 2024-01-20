@@ -1,0 +1,18 @@
+2024-01-19 19:53:09,268:logger:An unexpected error occurred: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-pW9Yf***************************************qF8E. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-01-19 19:53:09,360:logger:An unexpected error occurred: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'NoneType'>
+2024-01-19 19:53:09,423:logger:An unexpected error occurred: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'NoneType'>
+2024-01-19 19:53:09,424:logger:An unexpected error occurred: 'NoneType' object has no attribute 'invoke'
+2024-01-19 19:55:45,116:logger:An unexpected error occurred: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-pW9Yf***************************************qF8E. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-01-19 19:55:45,211:logger:An unexpected error occurred: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'NoneType'>
+2024-01-19 19:55:45,270:logger:An unexpected error occurred: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'NoneType'>
+2024-01-19 19:55:45,270:logger:An unexpected error occurred: 'NoneType' object has no attribute 'invoke'
+2024-01-19 19:58:24,235:logger:An unexpected error occurred: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-pW9Yf***************************************qF8E. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-01-19 19:58:35,455:logger:An unexpected error occurred: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-pW9Yf***************************************qF8E. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-01-19 19:58:46,019:logger:An unexpected error occurred: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'NoneType'>
+2024-01-19 20:03:42,437:logger:An unexpected error occurred: string indices must be integers, not 'str'
+2024-01-19 20:29:51,708:logger:An unexpected error occurred: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-Hrgzs***************************************WlJy. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2024-01-19 20:29:51,794:logger:An unexpected error occurred: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'NoneType'>
+2024-01-19 20:29:51,845:logger:An unexpected error occurred: Expected a Runnable, callable or dict.Instead got an unsupported type: <class 'NoneType'>
+2024-01-19 20:29:51,845:logger:An unexpected error occurred: 'NoneType' object has no attribute 'invoke'
+2024-01-19 20:31:23,416:logger:An unexpected error occurred: OpenAI API key not found! Seems like your trying to use Ragas metrics with OpenAI endpoints. Please set 'OPENAI_API_KEY' environment variable
+2024-01-19 20:35:59,765:logger:An unexpected error occurred: OpenAI API key not found! Seems like your trying to use Ragas metrics with OpenAI endpoints. Please set 'OPENAI_API_KEY' environment variable
