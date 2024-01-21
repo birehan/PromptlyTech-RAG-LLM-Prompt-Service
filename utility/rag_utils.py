@@ -23,8 +23,7 @@ from ragas.metrics import ( faithfulness, answer_relevancy, context_recall, cont
 
  
 # Load OpenAI API key from .env file
-is_api_key_found = load_dotenv(find_dotenv())
-print(f"is_api_key_found: {is_api_key_found}")
+load_dotenv(find_dotenv())
 
 
 def data_loader(file_path= '../prompts/context.txt', chunk_size=500, chunk_overlap=50):
