@@ -13,7 +13,6 @@ from langchain.vectorstores import Weaviate
 
 from datasets import Dataset
 import random
-import openai
 
 import weaviate
 from dotenv import load_dotenv,find_dotenv
@@ -23,11 +22,10 @@ from ragas import evaluate
 from ragas.metrics import ( faithfulness, answer_relevancy, context_recall, context_precision)
  
 # Load OpenAI API key from .env file
-is_api_key_found = load_dotenv(find_dotenv())
-print(f"is_api_key_found: {is_api_key_found}")
+load_dotenv(find_dotenv())
 
 
-def data_loader(file_path= '../prompts/context.txt', chunk_size=500, chunk_overlap=50):
+def data_loader(file_path= '../prompts/challenge_doc.txt', chunk_size=500, chunk_overlap=50):
     try:
         loader = TextLoader(file_path)
         documents = loader.load()
@@ -97,7 +95,11 @@ def generate_testcase_and_context(questions, ground_truths, retriever, rag_chain
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return None 
-    
+
+def generate_automatic_questions(query, retriever):
+    docs = retriever.get_relevant_documents(query)
+    return docs
+
 
 def create_retriever(chunks):
     try:
@@ -205,22 +207,18 @@ def elo_ratings_func(prompts, elo_ratings, K=30, opponent_rating=1600):
         print(f"An unexpected error occurred: {e}")
         return None 
 
-def evaluate_prompt(main_prompt, test_cases):
+def evaluate_prompt(prompts):
     try:
-        evaluations = {}
-
-        # Evaluate the main prompt using Monte Carlo and Elo methods
-        evaluations['main_prompt'] = {
-            'Monte Carlo Evaluation': monte_carlo_eval(main_prompt),
-            'Elo Rating Evaluation': elo_eval(main_prompt)
-        }
+        evaluations = []
 
         # Evaluate each test case
-        for idx, test_case in enumerate(test_cases):
-            evaluations[f'test_case_{idx+1}'] = {
-                'Monte Carlo Evaluation': monte_carlo_eval(test_case),
-                'Elo Rating Evaluation': elo_eval(test_case)
-            }
+        for idx, prompt in enumerate(prompts):
+            evaluations.append({ 
+                'prompt': prompt,
+                'Monte Carlo Evaluation': monte_carlo_eval(prompt),
+                'Elo Rating Evaluation': elo_eval(prompt)
+            })
+               
 
         return evaluations
 
@@ -253,9 +251,17 @@ def ragas_evaulation(response):
                 answer_relevancy,
             ],
         )
-
         df = result.to_pandas()
-        return df
+        values = df.values.tolist()
+
+        for i in range(len(values)):
+            values[i][2] = values[i][2].tolist()
+            values[i][3] = values[i][3].tolist()
+
+        columns = df.keys().tolist()
+        response = [columns] + values
+        
+        return response
     
     except Exception as e:
         print(f"An unexpected error occurred hola temosa: {e}")
@@ -281,9 +287,7 @@ def get_generated_prompt_with_evaulation(question):
         ground_truths = [[item['ground_truth']] for item in prompt_list]
 
         response = generate_testcase_and_context(questions, ground_truths, retriever, evaulation_rag_chain)
-        df = ragas_evaulation(response)
-
-        return df
+        return ragas_evaulation(response)
     
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
