@@ -17,6 +17,23 @@ Welcome to the PromptlyTech repository dedicated to optimizing Language Models (
 - Seamless integration with state-of-the-art LLMs like GPT-3.5 and GPT-4.
 - Automated testing and ranking to enhance user engagement and satisfaction.
 
+## Screenshots
+### Prompt the chatbot about this week challenge
+<img alt="" src="https://github.com/birehan/PromptlyTech-RAG-LLM-Prompt-Service/blob/main/screenshots/Screenshot%20from%202024-01-21%2013-13-09.png"/>
+
+### Automatic Prompt Generation Service
+<div style="display:flex; flex-direction:row; gap:20px; justify-content:center; align-items:center;">
+   <img alt="" src="https://github.com/birehan/PromptlyTech-RAG-LLM-Prompt-Service/blob/main/screenshots/Screenshot%20from%202024-01-21%2013-17-53.png"/>
+   <img alt="" src="https://github.com/birehan/PromptlyTech-RAG-LLM-Prompt-Service/blob/main/screenshots/Screenshot%20from%202024-01-21%2013-22-15.png"/>
+</div>
+
+### Automatic Test Case Generation Service
+<img alt="" src="https://github.com/birehan/PromptlyTech-RAG-LLM-Prompt-Service/blob/main/screenshots/Screenshot%20from%202024-01-21%2014-28-29.png"/>
+
+### Prompt Testing and Ranking Service
+<img alt="" src="https://github.com/birehan/PromptlyTech-RAG-LLM-Prompt-Service/blob/main/screenshots/Screenshot%20from%202024-01-21%2014-09-07.png"/>
+
+
 ## Getting Started
 
 1. Clone this repository:
